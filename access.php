@@ -3,15 +3,15 @@ $servername = "den1.mysql5.gear.host";
 $username = "gableon01";
 $password = "Bd51!2-23t6b";
 $database = "gableon01";
-
+echo $servername;
 // Create connection
-$conn = new mysqli($servername, $username, $password, $database);
+//$conn = new mysqli($servername, $username, $password, $database);
 
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+//if ($conn->connect_error) {
+//    die("Connection failed: " . $conn->connect_error);
+//} 
 
-$results = $conn->query("SELECT * FROM messages");
-echo $results;
+//$results = $conn->query("SELECT * FROM messages");
+//echo $results;
 ?>
