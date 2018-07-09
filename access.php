@@ -10,9 +10,12 @@ if(isset($_POST['debug'])){
 $servername = "den1.mysql5.gear.host";
 $username = "gableon01";
 $password = $_POST['pw'];
-echo $password;
 $database = "gableon01";
 
+echo $servername;
+echo $username;
+echo $password;
+echo $database;
 $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
