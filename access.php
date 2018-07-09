@@ -10,6 +10,7 @@ if(isset($_POST['debug'])){
 $servername = "den1.mysql5.gear.host";
 $username = "gableon01";
 $password = $_POST['pw'];
+echo $password;
 $database = "gableon01";
 
 $conn = new mysqli($servername, $username, $password, $database);
