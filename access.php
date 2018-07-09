@@ -44,6 +44,7 @@ function collectData($limit){
             echo $row["id"]. ", ". $row["screenname"]. ", " . $row["Message"]. "<br>";
         }
     }
+    $conn->close();
 }
 
 if(isset($_GET['getting'])){
