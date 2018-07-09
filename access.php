@@ -21,6 +21,12 @@ function writeDatabase($username, $message){
     $conn->query("INSERT INTO messages VALUES ('".$username."', '"."$message')");
 }
 
+if(isset($_GET['writing'])){
+    if($_GET['writing'] == true){
+        writeDatabase($_GET['username'], $_GET['message']);
+    }
+}
+
 function collectData($limit){
     $result = $conn->query("SELECT screenname, message FROM messages ORDER BY id DESC LIMIT "."$limit");
     if ($result->num_rows > 0) {
@@ -30,7 +36,11 @@ function collectData($limit){
     }
 }
 
-echo $blank;
+if(isset($_GET['getting'])){
+    if($_GET['getting'] == true){
+        collectData($_GET['limit']);
+    }
+}
 
 $conn->close();
 ?>
