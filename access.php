@@ -12,6 +12,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$results = $conn->query("SELECT * FROM messages");
-echo $results;
+//$results = $conn->query("SELECT * FROM messages");
+//echo $results;
+echo "Connected Successfully";
 ?>
