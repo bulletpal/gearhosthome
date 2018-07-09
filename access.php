@@ -23,6 +23,7 @@ function writeDatabase($username, $message, $conn){
 
 if(isset($_GET['writing'])){
     if($_GET['writing'] == 'true'){
+        echo "writing";
         writeDatabase($_GET['username'], $_GET['message'], $conn);
     }
 }
