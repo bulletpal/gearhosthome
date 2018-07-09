@@ -16,7 +16,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$conn->query("INSERT INTO messages ('bulletpal', 'Hello, world!')");
 $result = $conn->query("SELECT * FROM messages");
 
 if ($result->num_rows > 0) {
