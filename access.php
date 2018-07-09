@@ -26,7 +26,9 @@ function collectData($limit){
     }
 }
 
-echo $_GET['un'];
+if($_GET['un'] == null){
+    echo "NULL";
+}
 
 $conn->close();
 ?>
