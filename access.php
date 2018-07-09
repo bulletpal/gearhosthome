@@ -17,39 +17,28 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-function getConn(){
-    $conn = new mysqli($servername, $username, $password, $database);
-    if($conn->connect_error){
-        die("Connection failed: ". $conn->connect_error);
-    } else {
-        return $conn;
-    }
-}
-
-function writeDatabase($username, $message){
+function writeDatabase($username, $message, $conn){
     $conn->query("INSERT INTO messages VALUES ('".$username."', '"."$message')");
 }
 
 if(isset($_GET['writing'])){
     if($_GET['writing'] == true){
-        writeDatabase($_GET['username'], $_GET['message']);
+        writeDatabase($_GET['username'], $_GET['message'], $conn);
     }
 }
 
-function collectData($limit){
-    $conn = getConn();
+function collectData($limit, $conn){
     $result = $conn->query("SELECT screenname, message FROM messages ORDER BY id DESC LIMIT "."$limit");
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             echo $row["id"]. ", ". $row["screenname"]. ", " . $row["Message"]. "<br>";
         }
     }
-    $conn->close();
 }
 
 if(isset($_GET['getting'])){
     if($_GET['getting'] == true){
-        collectData($_GET['limit']);
+        collectData($_GET['limit'], $conn);
     }
 }
 
