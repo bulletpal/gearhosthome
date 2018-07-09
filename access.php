@@ -29,11 +29,14 @@ if(isset($_GET['writing'])){
 
 function collectData($limit, $conn){
     $result = $conn->query("SELECT screenname, message FROM messages ORDER BY id DESC LIMIT "."$limit");
+    $jarray = ();
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            echo $row["screenname"]. "," . $row["message"]. "|";
+            //echo $row["screenname"]. "," . $row["message"]. "|";
+            $jarray[] = $row;
         }
     }
+    echo json_encode($jarray);
 }
 
 if(isset($_GET['getting'])){
