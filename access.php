@@ -22,7 +22,7 @@ function writeDatabase($username, $message, $conn){
 }
 
 if(isset($_GET['writing'])){
-    if($_GET['writing'] == true){
+    if($_GET['writing'] == 'true'){
         writeDatabase($_GET['username'], $_GET['message'], $conn);
     }
 }
@@ -37,7 +37,7 @@ function collectData($limit, $conn){
 }
 
 if(isset($_GET['getting'])){
-    if($_GET['getting'] == true){
+    if($_GET['getting'] == 'true'){
         collectData($_GET['limit'], $conn);
     }
 }
