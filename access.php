@@ -18,12 +18,11 @@ if ($conn->connect_error) {
 } 
 
 function writeDatabase($username, $message, $conn){
-    $conn->query("INSERT INTO messages VALUES ('".$username."', '"."$message')");
+    $conn->query("INSERT INTO messages (screenname, message) VALUES ('".$username."', '"."$message')");
 }
 
 if(isset($_GET['writing'])){
     if($_GET['writing'] == 'true'){
-        echo "writing";
         writeDatabase($_GET['username'], $_GET['message'], $conn);
     }
 }
