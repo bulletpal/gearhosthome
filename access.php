@@ -1,6 +1,6 @@
 <?php
-if(isset($_POST['debug'])){
-    if($_POST['debug'] == 'true'){
+if(isset($_GET['debug'])){
+    if($_GET['debug'] == 'true'){
         ini_set('display_errors', 1);
         ini_set('display_startup_errors', 1);
         error_reporting(E_ALL);
@@ -9,13 +9,9 @@ if(isset($_POST['debug'])){
 
 $servername = "den1.mysql5.gear.host";
 $username = "gableon01";
-$password = $_POST['pw'];
+$password = $_GET['pw'];
 $database = "gableon01";
 
-echo $servername;
-echo $username;
-echo $password;
-echo $database;
 $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -25,9 +21,9 @@ function writeDatabase($username, $message, $conn){
     $conn->query("INSERT INTO messages (screenname, message) VALUES ('".$username."', '"."$message')");
 }
 
-if(isset($_POST['writing'])){
-    if($_POST['writing'] == 'true'){
-        writeDatabase($_POST['username'], $_POST['message'], $conn);
+if(isset($_GET['writing'])){
+    if($_GET['writing'] == 'true'){
+        writeDatabase($_GET['username'], $_GET['message'], $conn);
     }
 }
 
@@ -40,10 +36,10 @@ function collectData($limit, $conn){
     }
 }
 
-if(isset($_POST['getting'])){
-    if($_POST['getting'] == 'true'){
+if(isset($_GET['getting'])){
+    if($_GET['getting'] == 'true'){
         echo "made it here";
-        collectData($_POST['limit'], $conn);
+        collectData($_GET['limit'], $conn);
     }
 }
 
