@@ -1,8 +1,7 @@
 <?php
 $servername = "den1.mysql5.gear.host";
 $username = "gableon01";
-$password = $_GET['pass'];
-echo $password;
+$password = $_GET['key'];
 $database = "gableon01";
 
 // Create connection
@@ -14,4 +13,5 @@ if ($conn->connect_error) {
 } 
 
 $results = $conn->query("SELECT * FROM messages");
+echo $results;
 ?>
