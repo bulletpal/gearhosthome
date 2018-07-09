@@ -5,27 +5,28 @@ error_reporting(E_ALL);
 
 $servername = "den1.mysql5.gear.host";
 $username = "gableon01";
-$password = "Bd51!2-23t6b";
+$password = $_GET['pw'];
 $database = "gableon01";
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $database);
-
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$conn->query("INSERT INTO messages VALUES ('singerboy41', 'hi!')");
-$result = $conn->query("SELECT * FROM messages");
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo $row["id"]. ", ". $row["screenname"]. ", " . $row["Message"]. "<br>";
-    }
-} else {
-    echo "0 results";
+function writeDatabase($username, $message){
+    $conn->query("INSERT INTO messages VALUES ('".$username."', '"."$message')");
 }
+
+function collectData($limit){
+    $result = $conn->query("SELECT screenname, message FROM messages ORDER BY id DESC LIMIT "."$limit");
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            echo $row["id"]. ", ". $row["screenname"]. ", " . $row["Message"]. "<br>";
+        }
+    }
+}
+
+echo $_GET['un'];
+
 $conn->close();
 ?>
