@@ -2,6 +2,7 @@
 $servername = "den1.mysql5.gear.host";
 $username = "gableon01";
 $password = $_GET['pass'];
+echo $password;
 $database = "gableon01";
 
 // Create connection
