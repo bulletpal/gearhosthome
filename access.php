@@ -31,7 +31,7 @@ function collectData($limit, $conn){
     $result = $conn->query("SELECT screenname, message FROM messages ORDER BY id DESC LIMIT "."$limit");
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            echo $row["screenname"]. ", " . $row["message"]. "<br>";
+            echo $row["screenname"]. "," . $row["message"]. "|";
         }
     }
 }
