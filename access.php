@@ -38,6 +38,7 @@ function collectData($limit, $conn){
 
 if(isset($_POST['getting'])){
     if($_POST['getting'] == 'true'){
+        echo "made it here";
         collectData($_POST['limit'], $conn);
     }
 }
