@@ -30,5 +30,7 @@ function collectData($limit){
     }
 }
 
+echo $blank;
+
 $conn->close();
 ?>
