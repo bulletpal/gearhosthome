@@ -19,8 +19,6 @@ if ($conn->connect_error) {
 $conn->query("INSERT INTO messages ('bulletpal', 'Hello, world!')");
 $result = $conn->query("SELECT * FROM messages");
 
-echo $result->num_rows;
-
 if ($result->num_rows > 0) {
     // output data of each row
     echo "Greater than 0<br>";
