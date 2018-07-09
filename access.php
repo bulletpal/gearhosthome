@@ -16,13 +16,12 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
+$conn->query("INSERT INTO messages VALUES ('singerboy41', 'hi!')");
 $result = $conn->query("SELECT * FROM messages");
 
 if ($result->num_rows > 0) {
     // output data of each row
-    echo "Greater than 0<br>";
     while($row = $result->fetch_assoc()) {
-        echo "Result here<br>";
         echo $row["screenname"]. ", " . $row["Message"]. "<br>";
     }
 } else {
