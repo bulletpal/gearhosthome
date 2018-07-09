@@ -1,8 +1,10 @@
 <?php
+if($_GET['debug'] == "true"){
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
+}
+    
 $servername = "den1.mysql5.gear.host";
 $username = "gableon01";
 $password = $_GET['pw'];
@@ -28,6 +30,8 @@ function collectData($limit){
 
 if($_GET['un'] == null){
     echo "NULL";
+} else {
+    echo $_GET['un']
 }
 
 $conn->close();
